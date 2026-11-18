@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus Maintenance Requests</title>
+  <link rel="icon" type="image/png" href="./images/logo.png">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main-content">Skip to content</a>
+  <header>
+    <div class="bar">
+      <a class="brand" href="#home"><img src="./images/logo.png" alt="Mulungushi University logo" width="154" height="74"><span>Campus Maintenance<br>Requests</span></a>
+      <nav aria-label="Main">
+        <a href="#home">Home</a>
+        <a href="#manage">Manage Records</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section id="home" class="hero">
+      <p class="kicker">Mulungushi University &middot; School of Engineering and Technology</p>
+      <h1>Report it. Track it. Get it fixed.</h1>
+      <p>Students and staff use this system to report broken lights, leaking taps and damaged furniture around Mulungushi University, and to follow each request until it is completed.</p>
+      <a class="btn primary" href="#manage">Go to Manage Records</a>
+    </section>
+
+    <section id="manage">
+      <h2>Manage Records</h2>
+      <div id="message" class="message" role="status" aria-live="polite" hidden></div>
+
+      <div id="summary" class="summary" aria-label="Status summary"></div>
+
+      <form id="record-form" novalidate>
+        <h3 id="form-title" class="form-title">Add a request</h3>
+        <div class="record-grid">
+          <div class="field">
+            <label for="title">Title</label>
+            <input id="title" name="title" type="text" placeholder="e.g. Broken classroom light">
+            <small class="counter" id="title-count">0/80</small>
+          </div>
+          <div class="field">
+            <label for="category">Category</label>
+            <input id="category" name="category" type="text" list="cats" placeholder="e.g. Electrical">
+            <small class="counter" id="category-count">0/40</small>
+            <datalist id="cats"><option value="Electrical"><option value="Plumbing"><option value="Furniture"></datalist>
+          </div>
+        </div>
+        <div class="field">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="3" placeholder="Describe the problem and where it is"></textarea>
+          <small class="counter" id="description-count">0/300</small>
+        </div>
+        <div class="field">
+          <label for="status">Status</label>
+          <select id="status" name="status">
+            <option>Pending</option>
+            <option>In progress</option>
+            <option>Completed</option>
+          </select>
+        </div>
+        <div class="actions">
+          <button type="submit" id="save-btn" class="btn primary">Add request</button>
+          <button type="button" id="cancel-btn" class="btn" hidden>Cancel Edit</button>
+        </div>
+      </form>
+
+      <div class="tools">
+        <div class="field">
+          <label for="search">Search by title</label>
+          <input id="search" type="search" placeholder="Type to search">
+        </div>
+        <div class="field">
+          <label for="filter">Filter by status</label>
+          <select id="filter">
+            <option value="">All statuses</option>
+            <option>Pending</option>
+            <option>In progress</option>
+            <option>Completed</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="sort">Sort by</label>
+          <select id="sort">
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+            <option value="title">Title A to Z</option>
+            <option value="status">Status</option>
+          </select>
+        </div>
+      </div>
+      <p id="count" class="count" aria-live="polite"></p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>ID</th><th>Title</th><th>Category</th><th>Status</th><th>Actions</th></tr>
+          </thead>
+          <tbody id="records"></tbody>
+        </table>
+      </div>
+      <p id="empty" class="empty" hidden></p>
+
+      <section id="details" class="details" aria-live="polite" hidden></section>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <p><strong>Project name:</strong> Campus Maintenance Requests</p>
+      <p><strong>Student number:</strong> 202500391</p>
+      <p>This version uses browser demonstration data. Records are saved in your browser with localStorage and are not shared with other devices.</p>
+    </section>
+  </main>
+
+  <footer><p>ICT251 Activity 6 &middot; Mulungushi University &middot; <a href="#home">Back to top</a></p></footer>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
